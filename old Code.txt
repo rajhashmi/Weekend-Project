@@ -1,0 +1,56 @@
+This is old code have been improved now =>
+========================================================
+
+
+let input = document.querySelector(".input");
+let showResult = document.querySelector(".unordedList");
+let search = document.querySelector(".search");
+// let searchedItem = ''
+
+function searchedItem(letter){
+   let previousList = document.querySelector('ul')
+   let child = previousList.lastElementChild;
+   console.log(child);
+   while(child){
+    previousList.removeChild(child)
+    child = previousList.lastElementChild;
+   }
+    let filter = data.filter((values)=>{
+        if(values.category.includes(letter) && letter != ''){
+            return values
+        }
+    })
+   createList(filter)
+
+}
+
+function createList(filter){
+   console.log(showResult);
+    let array = [];
+    filter.forEach((value)=>{
+    array.push(value.category)
+   })
+
+
+
+   let mapping = array.forEach((value) => {
+    let list = document.createElement('li');
+    let link = document.createElement('a');
+
+    showResult.appendChild(list);
+    link.innerText = value;
+    list.append(link); 
+});
+return mapping
+
+}
+
+
+input.addEventListener('click', ()=>{
+    input.style.border = '1px solid gold'
+});
+input.addEventListener('keyup',(e)=>{
+    let letter = e.target.value;
+    searchedItem(letter)
+})
+
