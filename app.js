@@ -383,6 +383,12 @@ function itemCatogory(index_) {
   const items = data[index_].items;
   items.forEach((item) => {
     let spans = document.createElement("span");
+    spans.onclick = function(e){
+      const url = `product.html?item=${encodeURIComponent(item)}`;
+      console.log(url)
+      window.open("product.html", "_blank");
+      
+    }
     spans.textContent = item;
     Items.appendChild(spans);
   });
